@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <ion-item>
+      <ion-img class="images" src="assets/img/avatar-ts-woody.png"></ion-img>
+      <ion-title text-center>Lorenz Company</ion-title>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="ios-briefcase" item-left></ion-icon>
+      My company
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="md-contacts" item-left></ion-icon>
+      My drivers
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-car" item-left></ion-icon>
+      My trucks
+    </ion-item>
+
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
