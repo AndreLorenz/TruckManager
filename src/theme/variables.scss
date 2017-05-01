@@ -28,8 +28,14 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  gray: gray,
+  truckgreen: #76c2af
 );
+
+    $label-md-text-color-focused: light;
+    $text-input-md-highlight-color: light;
+
 
 
 // App iOS Variables
@@ -74,4 +80,4 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
+@import url('https://fonts.googleapis.com/css?family=Oxygen|Roboto');

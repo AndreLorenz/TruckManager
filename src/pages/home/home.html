@@ -1,17 +1,47 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>{{teste}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-card class="card" *ngFor="let truck of trucks">
+    <ion-row align-items-center>
+      <ion-col col-6>
+        <span ion-text color="gray">{{truck.brand}}</span>
+        <p ion-text class="content">{{truck.model}}</p>
+      </ion-col>
+      <ion-col col-5>
+        <span ion-text class="label" color="gray">PREÇO</span>
+        <p ion-text class="content" color="secondary">R${{truck.price | currency:'USD':true:'1.2-2'}}</p>
+      </ion-col>
+      <ion-col col-1>
+        <ion-icon class="icon" color="secondary" isActive="false" name="ios-arrow-down" (click)="show = !show" item-right></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="additional" align-items-center *ngIf="show">
+      <ion-col col-6>
+        <span ion-text class="label" color="gray">VELOCIDADE MÉDIA</span>
+        <p ion-text class="content">{{truck.average_speed}}KM/h</p>
+      </ion-col>
+      <ion-col col-6>
+        <span ion-text class="label" color="gray">PESO MÁXIMO</span>
+        <p ion-text class="content" color="secondary">{{truck.maximum_wight}}ton.</p>
+      </ion-col>
+      <ion-col col-6>
+        <span ion-text class="label" color="gray">TOTAL DE QUILOMETROS</span>
+        <p ion-text class="content">{{truck.kilometers}}km</p>
+      </ion-col>
+      <ion-col col-6>
+        <span ion-text class="label" color="gray">TOTAL DE DIESEL</span>
+        <p ion-text class="content" color="secondary">{{truck.fuel}}l</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+  <button ion-button (click)="loadTrucks()" color="light">Carregar caminhões</button>
+
 </ion-content>

@@ -5,6 +5,11 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { CompanySlider } from '../pages/company/company';
+import { DBManager } from '../providers/db-manager';
+import { TruckService } from '../providers/truck-service';
+import { CompanyService } from '../providers/company-service';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CompanySlider
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,12 +32,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CompanySlider
   ],
   providers: [
+    DBManager,
     StatusBar,
+    SQLite,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    TruckService,
+    CompanyService,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

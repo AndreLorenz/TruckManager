@@ -4,18 +4,25 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { CompanySlider } from '../pages/company/company';
+import { CompanyService } from '../providers/company-service';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage: any;
+  companyService: CompanyService;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, companyService: CompanyService) {
+    this.companyService = companyService;
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      this.companyService.countCompany().then(res => {
+        if (!res) this.rootPage = CompanySlider;
+        else this.rootPage = TabsPage;
+      });
+
       statusBar.styleDefault();
       splashScreen.hide();
     });

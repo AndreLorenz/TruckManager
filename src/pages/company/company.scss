@@ -1,0 +1,26 @@
+company-home {
+    .slide-image {
+        background-image: url('../assets/img/company.jpg');
+background-repeat:no-repeat;
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+background-position:center;
+
+
+
+    }
+    .item.item-input {
+    background-color:transparent;
+    color: #f4f4f4;
+    }
+
+    .dark {
+    background-color:transparent;
+    color: #222;
+    }
+
+}
+
+

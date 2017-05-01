@@ -1,0 +1,66 @@
+<ion-content>
+  <ion-slides>
+    <ion-slide class="slide-image">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <object id="svg1" data="assets/icon/sejambemvindos.svg" type="image/svg+xml" height="90%" width="90%"></object>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+          <ion-col col-10>
+            <ion-list>
+              <ion-item class="item">
+                <ion-label color="light" floating>Nome da empresa</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button color="truckgreen" (click)="next()">Cadastrar</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col col-10>
+            <ion-list>
+              <ion-item>
+                <ion-label color="truckgreen">Região</ion-label>
+                <ion-select class="dark" (ionChange)="getCities($event)" [(ngModel)]="region" multiple="false" cancelText="Cancelar" okText="Confirmar">
+                  <ion-option value="BRA">Brasil</ion-option>
+                  <ion-option value="EUR">Europa</ion-option>
+                  <ion-option value="EUA">América</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="truckgreen">Cidade</ion-label>
+                <ion-select class="dark" [(ngModel)]="city" multiple="false" cancelText="Cancelar" okText="Confirmar">
+                  <ion-option *ngFor="let item of items" value="{{item.id}}">{{item.name}}</ion-option>
+                </ion-select>
+              </ion-item>
+
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button color="truckgreen" (click)="back()">Voltar</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+    </ion-slide>
+  </ion-slides>
+
+
+</ion-content>
